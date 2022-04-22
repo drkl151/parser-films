@@ -20,7 +20,7 @@ export default {
   },
 
   route: {
-    base: '/dist',
+    base: '/parser-films/dist',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
