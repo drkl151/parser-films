@@ -1,3 +1,4 @@
+/* eslint-disable vue/order-in-components */
 <template>
   <main id="main">
     <Table :films="films" />
@@ -11,23 +12,24 @@ import Table from '@/components/Table/Table'
 export default {
   name: 'IndexPage',
 
+  components: {
+    Table,
+  },
+
   mounted() {
     this.parse()
   },
 
-  components: {
-    Table,
+  // eslint-disable-next-line vue/order-in-components
+  computed: {
+    ...mapGetters({
+      films: 'parse/films',
+    }),
   },
 
   methods: {
     ...mapActions({
       parse: 'parse/parse',
-    }),
-  },
-
-  computed: {
-    ...mapGetters({
-      films: 'parse/films',
     }),
   },
 }
