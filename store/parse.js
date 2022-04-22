@@ -1,12 +1,14 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
 
+import getTorrents from '../utils/getTorrents.js'
+
 export const state = () => ({
   films: [],
 })
 
 export const actions = {
-  parse({ commit }) {
+  parse({ commit, dispatch }) {
     const urlSite = 'https://kinobase.org/films?sort=viewed_week'
 
     axios
@@ -32,7 +34,7 @@ export const actions = {
         const allParseFilms = []
 
         films.forEach((film) => {
-          axios.get(film).then(({ data }) => {
+          axios.get(film).then(async ({ data }) => {
             const $ = cheerio.load(data)
             const filmPoster = $('.data.clearfix .poster img').attr('src')
 
@@ -54,10 +56,12 @@ export const actions = {
               fullInfo[splitElement[0]] = splitElement[1].trim()
             })
 
-            allParseFilms.push(fullInfo)
+            const torrentUrls = await getTorrents(fullInfo.Название)
+            console.log(torrentUrls);
+            allParseFilms.push({ torrentUrls, ...fullInfo })
           })
         })
-         
+
         return allParseFilms
       })
       .then((films) => {
@@ -70,7 +74,6 @@ export const actions = {
 
 export const mutations = {
   setFilms(state, films) {
-    console.log(films[0])
     state.films = films
   },
 }
