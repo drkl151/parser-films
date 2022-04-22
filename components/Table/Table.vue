@@ -60,6 +60,7 @@ export default {
   name: 'Table',
 
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     films: {
       type: Array,
     },

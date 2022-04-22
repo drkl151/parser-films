@@ -57,7 +57,6 @@ export const actions = {
             })
 
             const torrentUrls = await getTorrents(fullInfo.Название)
-            console.log(torrentUrls);
             allParseFilms.push({ torrentUrls, ...fullInfo })
           })
         })
