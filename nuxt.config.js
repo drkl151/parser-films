@@ -19,7 +19,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  route: {
+  router: {
     base: '/parser-films/dist',
   },
 
