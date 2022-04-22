@@ -67,7 +67,7 @@ export const actions = {
       .then((films) => {
         setTimeout(() => {
           commit('setFilms', films)
-        }, 1000)
+        }, 1300)
       })
   },
 }

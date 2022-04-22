@@ -62,7 +62,6 @@ export default {
   props: {
     films: {
       type: Array,
-      require: true,
     },
   },
 }
