@@ -22,33 +22,25 @@
         <th>Режиссер</th>
         <th>Формат видео</th>
         <th>Постер</th>
-        <th>Торент</th>
       </tr>
       <tr v-for="film of films" :key="film.poster">
-        <template v-if="film.torrentUrls.length">
-          <td>
-            {{ film.Название }}
-            <span v-if="film.АльтернативноеНазвание">
-              / {{ film.АльтернативноеНазвание }}</span
-            >
-          </td>
-          <td>{{ film.Год }}</td>
-          <td>{{ film.Жанр }}</td>
-          <td>{{ film.Описание }}</td>
-          <td>{{ film.Актеры }}</td>
-          <td>{{ film.Перевод }}</td>
-          <td>{{ film.Продолжительность }}</td>
-          <td>{{ film.Режиссер }}</td>
-          <td>{{ film.Качество }}</td>
-          <td>
-            {{ film.Постер }}
-          </td>
-          <td>
-            <p v-for="(url, i) of film.torrentUrls" :key="i">
-              <a target="_blank" :href="url">{{ url }}</a>
-            </p>
-          </td>
-        </template>
+        <td>
+          {{ film.Название }}
+          <span v-if="film.АльтернативноеНазвание">
+            / {{ film.АльтернативноеНазвание }}</span
+          >
+        </td>
+        <td>{{ film.Год }}</td>
+        <td>{{ film.Жанр }}</td>
+        <td>{{ film.Описание }}</td>
+        <td>{{ film.Актеры }}</td>
+        <td>{{ film.Перевод }}</td>
+        <td>{{ film.Продолжительность }}</td>
+        <td>{{ film.Режиссер }}</td>
+        <td>{{ film.Качество }}</td>
+        <td>
+          {{ film.Постер }}
+        </td>
       </tr>
     </table>
   </div>

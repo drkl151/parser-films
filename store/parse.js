@@ -1,7 +1,7 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
 
-import getTorrents from '../utils/getTorrents.js'
+// import getTorrents from '../utils/getTorrents.js'
 
 export const state = () => ({
   films: [],
@@ -34,7 +34,7 @@ export const actions = {
         const allParseFilms = []
 
         films.forEach((film) => {
-          axios.get(film).then(async ({ data }) => {
+          axios.get(film).then(({ data }) => {
             const $ = cheerio.load(data)
             const filmPoster = $('.data.clearfix .poster img').attr('src')
 
@@ -56,8 +56,7 @@ export const actions = {
               fullInfo[splitElement[0]] = splitElement[1].trim()
             })
 
-            const torrentUrls = await getTorrents(fullInfo.Название)
-            allParseFilms.push({ torrentUrls, ...fullInfo })
+            allParseFilms.push(fullInfo)
           })
         })
 
