@@ -1,15 +1,5 @@
 <template>
   <div class="table-wrapper">
-    <div class="choose-site">
-      <p>Выбери сайт для парсинга</p>
-
-      <select name="select">
-        <option value="site1" selected>Kinobase</option>
-        <option value="site2">rezka</option>
-        <option value="site3">film 3</option>
-      </select>
-    </div>
-
     <table class="table">
       <tr class="title-row">
         <th>Название</th>
