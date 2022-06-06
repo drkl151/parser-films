@@ -1,0 +1,11 @@
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &__iframe {
+    width: 90vw;
+    height: 90vh;
+  }
+}
