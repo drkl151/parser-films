@@ -21,8 +21,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  router: {
-    base: '/parser-films/dist/',
+  env: {
+    baseUrl: process.env.BASE_URL,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

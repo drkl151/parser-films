@@ -18,6 +18,7 @@
       <tr v-for="(film, i) of films" :key="film.Оригинальное_название">
         <td>
           <button
+            v-if="!isLoadingUrl"
             class="btn-getm3u8"
             @click="
               getUrl({
@@ -29,6 +30,7 @@
           >
             Получить ссылку m3u8
           </button>
+          <p v-else>Loading...</p>
           <template v-if="film.m3u8Url">
             <input id="m3u8-text" :value="film.m3u8Url" />
             <p id="copy" @click="copyM3U8(film.m3u8Url)">copy</p>
@@ -83,7 +85,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations, mapGetters } from 'vuex'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -101,6 +103,12 @@ export default {
       selectedTranslate: '',
       selectedQuality: '',
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      isLoadingUrl: 'hdrezka/isLoadingUrl'
+    })
   },
 
   methods: {
