@@ -1,6 +1,6 @@
 <template>
   <main id="main">
-    <Loader v-if="isRequest" />
+    <Loader v-if="isRequest || isLoadingWebSocket" />
 
     <template v-else>
       <div v-if="!isRequest && !films.length" class="getFilms">
@@ -72,6 +72,7 @@ export default {
     ...mapGetters({
       isRequest: 'hdrezka/isRequest',
       films: 'hdrezka/films',
+      isLoadingWebSocket: 'hdrezka/isLoadingWebSocket',
     }),
   },
 
