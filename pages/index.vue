@@ -63,6 +63,10 @@ export default {
     }
   },
 
+  mounted() {
+    this.loadSocket();
+  },
+
   // eslint-disable-next-line vue/order-in-components
   computed: {
     ...mapGetters({
@@ -74,6 +78,7 @@ export default {
   methods: {
     ...mapActions({
       parseHdrezka: 'hdrezka/parse',
+      loadSocket: 'hdrezka/loadSocket'
     }),
   },
 }
