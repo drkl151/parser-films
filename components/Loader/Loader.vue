@@ -1,13 +1,6 @@
 <template>
   <div class="loader">
-    <iframe
-      class="loader__iframe"
-      src="https://www.youtube.com/embed/3SeOVVJXOUo"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+    <img src="./loader.gif" alt="" />
   </div>
 </template>
 
