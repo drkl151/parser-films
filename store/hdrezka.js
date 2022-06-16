@@ -10,12 +10,13 @@ export const state = () => ({
   films: [],
   isRequest: false,
   isLoadingUrl: false,
+  isLoadingWebSocket: true,
 })
 
 export const actions = {
   loadSocket({ commit }) {
     socket.on('connect', () => {
-      return null;
+      commit('changeLoaderWebSocket', false);
     })
 
     socket.on('disconnect', () => {
@@ -110,10 +111,14 @@ export const mutations = {
       return film
     })
   },
+  changeLoaderWebSocket(state, isLoading) {
+     state.isLoadingWebSocket = isLoading;
+  }
 }
 
 export const getters = {
   isRequest: ({ isRequest }) => isRequest,
   films: ({ films }) => films,
-  isLoadingUrl: ({ isLoadingUrl }) => isLoadingUrl
+  isLoadingUrl: ({ isLoadingUrl }) => isLoadingUrl,
+  isLoadingWebSocket: ({ isLoadingWebSocket }) => isLoadingWebSocket,
 }
