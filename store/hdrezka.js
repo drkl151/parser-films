@@ -42,6 +42,14 @@ export const actions = {
         console.log(e)
       }
     })
+
+    socket.on('browser', (info) => {
+      console.log(info);
+    })
+    
+    socket.on('filmsError', (info) => {
+      console.log('filmsError', info);
+    })
   },
 
   async parse({ commit }, url) {
